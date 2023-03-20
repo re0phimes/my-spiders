@@ -1,0 +1,17 @@
+name: Mirror to Gitee
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  to_gitee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: techknowlogick/github-actions-gitea-mirror@v1
+        with:
+          target_repo_url: https://gitee.com/Laphirentia/my-spiders.git
+          username: ${{ secrets.GITEE_USERNAME }}
+          password: ${{ secrets.GITEE_PASSWORD }}
